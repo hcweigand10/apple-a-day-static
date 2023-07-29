@@ -1,0 +1,30 @@
+const menuItemsEl = document.querySelector("#menu-items")
+const dateEl = document.querySelector("#date")
+
+const queryUrl = "http://localhost:3001/api/shifts/today/1"
+
+const fetchMenu = () => {
+  fetch(queryUrl).then(res=>res.json())
+  .then(data => {
+    console.log(data)
+    if (data.Items) {
+      dateEl.textContent = `${dayjs(data.date).format("MMMM D, YYYY")}`
+      data.Items.forEach(item => renderItem(item))
+    } else {
+      dateEl.textContent = "Nothing posted for today :("
+      
+    }
+  })
+  .catch(err => {
+    console.log(err)
+  })
+}
+
+const renderItem = (item) => {
+  const itemEl = document.createElement("li")
+  itemEl.textContent = item.name
+  itemEl.setAttribute("class", "text-lg font-gray-800 font-bold")
+  menuItemsEl.appendChild(itemEl)
+}
+
+fetchMenu()
