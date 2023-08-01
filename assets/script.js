@@ -7,7 +7,7 @@ const fetchMenu = () => {
   fetch(queryUrl).then(res=>res.json())
   .then(data => {
     console.log(data)
-    if (data.Items) {
+    if (data.ShiftItems) {
       dateEl.textContent = `${dayjs(data.date).format("MMMM D, YYYY")}`
       data.Items.forEach(item => renderItem(item))
     } else {
@@ -16,6 +16,7 @@ const fetchMenu = () => {
     }
   })
   .catch(err => {
+    dateEl.textContent = "Nothing posted for today :("
     console.log(err)
   })
 }
