@@ -9,7 +9,7 @@ const fetchMenu = () => {
     console.log(data)
     if (data.ShiftItems) {
       dateEl.textContent = `${dayjs(data.date).format("MMMM D, YYYY")}`
-      data.Items.forEach(item => renderItem(item))
+      data.ShiftItems.forEach(item => renderItem(item.Item.name))
     } else {
       dateEl.textContent = "Nothing posted for today :("
       
