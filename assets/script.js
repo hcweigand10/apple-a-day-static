@@ -23,7 +23,7 @@ const fetchMenu = () => {
 
 const renderItem = (item) => {
   const itemEl = document.createElement("li")
-  itemEl.textContent = item.name
+  itemEl.textContent = item
   itemEl.setAttribute("class", "text-lg font-gray-800 font-bold")
   menuItemsEl.appendChild(itemEl)
 }
