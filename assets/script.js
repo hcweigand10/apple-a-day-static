@@ -1,7 +1,7 @@
 const menuItemsEl = document.querySelector("#menu-items")
 const dateEl = document.querySelector("#date")
 
-const queryUrl = "https://apple-a-day-pos-11214dcf0b89.herokuapp.com/api/shifts/today/2/"
+const queryUrl = "https://apple-a-day-pos-11214dcf0b89.herokuapp.com/api/shifts/today/1/"
 
 const fetchMenu = () => {
   fetch(queryUrl).then(res=>res.json())
